@@ -110,12 +110,58 @@ Bu şekilde bir kullanım yapılırsa görüldüğü gibi Python integer ve stri
 a=10
 b="15"
 print(a+int(b))
-25
+
+>>>25
+
 Bu kullanım çok mantıklı olmayabilir. İleri ki yazılarda kullanıcı ile etkileşime geçildiği zaman bu dönüşümlerin ne kadar önemli olduğundan bahsedeceğiz.
 
+# Kullanıcıdan Veri Almak
+
+Bugüne kadar yaptığımız bütün örneklerde her zaman tek taraflı işlemler yaptık.Yani kullanıcı programa hiç müdahalede bulunamadı. Bu yazımızda kullanıcının Python ile nasıl etkileşime geçeceğinden bahsedeceğiz.
+Python da kullanıcı ile etkileşime geçebilmek için input() fonksiyonu kullanılır. Şimdi bu fonksiyonları ve aralarındaki temel farkları inceleyelim.
+
+input() Fonksiyonu
+input() fonksiyonu klavye aracılığı ile kullanıcıdan veri alınmasını sağlar. Daha iyi anlayabilmeniz için basit bir örnek ile açıklayalım.
+ 
+ad = input("Lütfen adınızı giriniz:")
+print(ad)
+
+Yukarıdaki programda ilk satırdaki kodun ne işe yaradığından ve kaydedilen bir Python dosyasının çalıştırılmasından yazının başında bahsetmiştik. Gelelim şuan bizi ilgilendiren kodlara; Gördüğünüz gibi input() fonksiyonu içinde "Lütfen adınızı giriniz:" açıklaması yapılarak programın kullanıcıdan ne beklediği belirtilmiştir. Bu açıklamayı yapmak zorunda değilsiniz. Ama kullanıcının programın kendisinden ne beklediğini anlayabilmesi için yazmanız daha faydalı olacaktır. Burada input() fonksiyonunun anlaşılabilmesi için basit bir örnek yapılmıştır.Şimdi ise kullanıcının girdiği iki sayıyı topladıktan sonra ekrana yazdıran programı yazmaya çalışalım.
 
 
 
+print("İki Sayıyı Toplayan Program")
+sayi1 = input("Birinci Sayıyı Giriniz:")
+sayi2 = input("İkinci Sayıyı Giriniz:");
+ 
+toplam = sayi1+sayi2
+print(toplam)
+
+Bu programı çalıştırdıktan sonra 10 ve 15 değerlerini girerseniz şu şekilde bir çıktı ile karşılaşacaksınız.
+
+İki Sayıyı Toplayan Program
+Birinci Sayıyı Giriniz:10
+İkinci Sayıyı Giriniz:15
+1015
+
+Gördüğünüz gibi biz programın iki sayıyı toplamasını isterken;program iki sayıyı yan yana ekleyerek ekrana yazdı. Buradan da anlayacağınız gibi raw_input() kullanıcı tarafından girilen bütün değerleri karakter dizisi olarak alır. Yani Python için girilen iki değer sayı değildir.Bu yüzden de iki karakter dizisini uç uca eklemiş oldu. Programın kod yapısını şu şekilde değiştirelim.
+
+print("İki Sayıyı Toplayan Program")
+sayi1 = input("Birinci Sayıyı Giriniz:")
+sayi2 = input("İkinci Sayıyı Giriniz:");
+ 
+toplam = int(sayi1)+int(sayi2)
+print(toplam)
+
+Aynı değerleri bu program için girdiğinizde aşağıdaki gibi bir sonuçla karşılaşacaksınız.
+
+İki Sayıyı Toplayan Program
+Birinci Sayıyı Giriniz:10
+İkinci Sayıyı Giriniz:15
+
+>>>25
+
+Peki neden bu şekilde oldu? Eğer bu sorunun cevabı hakkında pek bir fikriniz yoksa;Değişkenler başlıklı yazıyı okumalısınız. Burada programın elinde bulunan karakter dizilerini sayıya çevirmesi için int() fonksiyonundan yararlandık.
 
 
 
